@@ -1,0 +1,38 @@
+{
+  "name": "koa-elm",
+  "version": "1.0.0",
+  "description": "koa wrapper for elm",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "fs-promise": "^0.5.0",
+    "randomstring": "^1.1.4",
+    "watch": "^0.17.1"
+  },
+  "peerDependencies": {
+    "elm": "^0.16.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "elm": "^0.16.0",
+    "koa": "^1.1.2",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poying/koa-elm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/poying/koa-elm/issues"
+  },
+  "homepage": "https://github.com/poying/koa-elm#readme"
+}
