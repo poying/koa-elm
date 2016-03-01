@@ -7,7 +7,7 @@ const fs = require('fs-promise');
 const exec = require('child_process').exec;
 const randomstring = require('randomstring');
 const debug = require('debug')('koa-elm');
-const ELMPATH = path.resolve(__dirname, 'node_modules/.bin/elm-make');
+const ELMPATH = require.resolve('elm/binwrappers/elm-make');
 
 module.exports = function (urlpath, options) {
   options || (options = {});
