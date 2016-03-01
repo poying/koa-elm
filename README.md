@@ -24,4 +24,4 @@ app.use(elm('/build.js', options));
 
 (The MIT License)
 
-Copyright (c) 2014 Po-Ying Chen &lt;poying.me@gmail.com&gt;.
+Copyright (c) 2016 Po-Ying Chen &lt;poying.me@gmail.com&gt;.
