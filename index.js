@@ -15,8 +15,7 @@ module.exports = function (urlpath, options) {
   const context = {
     root: options.root || process.cwd(),
     entry: options.entry || 'Main.elm',
-    out: options.stdout,
-    err: options.stderr,
+    onError: options.onError || function () {},
     cache: null
   };
 
@@ -47,7 +46,8 @@ function autoRebuild(context) {
     dir = path.resolve(context.root, dir);
     debug(`watch ${dir}`);
     watch.watchTree(dir, () => {
-      build(context);
+      build(context)
+        .catch(context.onError);
     });
   });
 }
@@ -67,11 +67,10 @@ function elmMake(dist, options) {
   const entry = path.resolve(options.root, options.entry);
   return new Promise((resolve, reject) => {
     const command = [ELMPATH, '--yes', '--output', dist, entry].join(' ');
-    const elmMake = exec(command, { cwd: options.root }, err => {
+    const elmMake = exec(command, { cwd: options.root }, (err, stdout, stderr) => {
+      err = err || (stdout && new Error(stdout));
       err ? reject(err) : resolve();
     });
-    options.out && elmMake.stdout.pipe(options.out);
-    options.err && elmMake.stderr.pipe(options.err);
   });
 }
 

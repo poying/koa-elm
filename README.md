@@ -14,8 +14,7 @@ app.use(elm('/build.js', options));
 {
   root: <String>, // default: process.cwd()
   entry: <String>, // default: 'Main.elm'
-  stdout: <Stream>, // default: undefined
-  stderr: <Stream>, // default: indefined
+  onError: <Function>,
   watch: <Boolean> // default: false
 }
 ```
