@@ -68,7 +68,7 @@ function elmMake(dist, options) {
   return new Promise((resolve, reject) => {
     const command = [ELMPATH, '--yes', '--output', dist, entry].join(' ');
     const elmMake = exec(command, { cwd: options.root }, (err, stdout, stderr) => {
-      err = err || (stdout && new Error(stdout));
+      err = err || (stderr && new Error(stderr));
       err ? reject(err) : resolve();
     });
   });
